@@ -9,6 +9,7 @@
 1) This project requires `npm`,`nodejs` and `mongodb` to be installed on your system
 2) Clone the repository and install all dependencies using `npm i`
 3) Start the server and task monitor using `npm run start`
+4) Now, install the 'ThunderClient' VS Code extension. Open it and under collections tab on top, click on import. Then import the file ```./thunder-collection_server-lord-tasks-api.json``` which i have given in the repo. Then you will see options for 4 apis - one of them is 'new_user'. Click on 'new_user', and click on the "SEND" button to create a new user with specified details. Create two users with different usernames and emails.
 4) DON'T WORRY IF YOU GET ERRORS OR FAILED PING AS OUTPUT IN THE COMMAND LINE. I need to change the code a bit as the way I had implemented it earlier was a bit different from now. For now, let us just create the tasks. IGNORE THE ERRORS and move to the next repo
 
 ## Description
