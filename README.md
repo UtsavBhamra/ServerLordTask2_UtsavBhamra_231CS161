@@ -9,9 +9,11 @@
 1) This project requires `npm`,`nodejs` and `mongodb` to be installed on your system
 2) Clone the repository and install all dependencies using `npm i`
 3) Start the server and task monitor using `npm run start`
-4) Test the API endpoints using the thunderclient collection 
+4) DON'T WORRY IF YOU GET ERRORS OR FAILED PING AS OUTPUT IN THE COMMAND LINE. I need to change the code a bit as the way I had implemented it earlier was a bit different from now. For now, let us just create the tasks. IGNORE THE ERRORS and move to the next repo
 
 ## Description
+
+(Dont worry about all this. I wrote all this in the learning phase. Just follow the above steps and move to the next repo.)
 
 #### Choice of Database-
 

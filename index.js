@@ -51,7 +51,7 @@ const generatePingURL = (task) => {
 
 app.post("/tasks", async (req, res) => {
     try {
-        const { userId, name, interval } = req.body;
+        const { userId, name, interval, pingURL } = req.body; // Accept pingURL from the client
 
         const user = await User.findById(userId);
         if (!user) {
@@ -62,6 +62,7 @@ app.post("/tasks", async (req, res) => {
             name,
             user: userId,
             interval,
+            pingURL, // Use the pingURL provided by the client
             lastPing: Date.now(),
             status: 'alive',
         });
@@ -73,11 +74,13 @@ app.post("/tasks", async (req, res) => {
 
         res.status(201).json(task);
 
+        // Optional: Start task pinging if required
         startTaskPinging(task);
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
 });
+
 
 // Function to start pinging the task
 const startTaskPinging = (task) => {
@@ -85,7 +88,7 @@ const startTaskPinging = (task) => {
 
     setInterval(async () => {
         try {
-            const pingURL = generatePingURL(task);
+            const pingURL = task.pingURL;
 
             console.log(`Sending ping for task "${task.name}" to URL: ${pingURL}`);
 
@@ -161,7 +164,7 @@ const checkTaskStatus = async () => {
 
 const startTaskMonitor = () => {
     console.log("Starting task status monitor...");
-    setInterval(checkTaskStatus, 20000); // Monitor tasks every minute
+    checkTaskStatus(); // Monitor tasks every minute
 };
 
 
